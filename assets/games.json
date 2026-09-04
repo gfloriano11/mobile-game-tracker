@@ -1,0 +1,103 @@
+{
+  "games": [
+    {
+      "name": "Minecraft",
+      "genre": "Sandbox",
+      "platform": "PC, Mobile, PS3, PS4, PS5, Xbox 360, Xbox One, Xbox Series X, Xbox Series S, Nintendo Switch, Nintendo Switch 2",
+      "description": "Minecraft is a 3D sandbox video game made of blocks where players explore, gather resources, and build anything they can imagine.",
+      "hoursPlayed": "100",
+      "review": "10/10",
+      "images": "assets/games/minecraft.jpg"
+    },
+    {
+      "name": "Red Dead Redemption 2",
+      "genre": "Action-Adventure",
+      "platform": "PC, PS4, Xbox One",
+      "description": "Red Dead Redemption 2 is an open-world action-adventure game set in the American Wild West, following Arthur Morgan and the Van der Linde gang.",
+      "hoursPlayed": "80",
+      "review": "10/10",
+      "images": "assets/games/rdr2.jpg"
+    },
+    {
+      "name": "The Last of Us",
+      "genre": "Action-Adventure",
+      "platform": "PS3, PS4, PS5, PC",
+      "description": "The Last of Us is a post-apocalyptic action-adventure game following Joel and Ellie as they travel across the United States searching for a possible cure.",
+      "hoursPlayed": "15",
+      "review": "10/10",
+      "images": "assets/games/tlou1.jpg"
+    },
+    {
+      "name": "The Last of Us Part II",
+      "genre": "Action-Adventure",
+      "platform": "PS4, PS5, PC",
+      "description": "The Last of Us Part II is a story-driven action-adventure game that follows Ellie through a brutal journey of survival, revenge, and loss.",
+      "hoursPlayed": "25",
+      "review": "9/10",
+      "images": "assets/games/tlou2.jpg"
+    },
+    {
+      "name": "A Plague Tale: Innocence",
+      "genre": "Action-Adventure",
+      "platform": "PC, PS4, PS5, Xbox One, Xbox Series X, Xbox Series S, Nintendo Switch",
+      "description": "A Plague Tale: Innocence is a story-driven action-adventure game following Amicia and her younger brother Hugo as they survive war, the Inquisition, and swarms of rats in medieval France.",
+      "hoursPlayed": "15",
+      "review": "9/10",
+      "images": "assets/games/plague-tale.jpg"
+    },
+    {
+      "name": "EA Sports FC 26",
+      "genre": "Sports",
+      "platform": "PC, PS4, PS5, Xbox One, Xbox Series X, Xbox Series S, Nintendo Switch, Nintendo Switch 2",
+      "description": "EA Sports FC 26 is a football simulation game featuring real-world teams, players, competitions, and multiple game modes.",
+      "hoursPlayed": "50",
+      "review": "8/10",
+      "images": "assets/games/eafc26.jpg"
+    },
+    {
+      "name": "Dark Souls",
+      "genre": "Action RPG",
+      "platform": "PC, PS3, PS4, Xbox 360, Xbox One, Nintendo Switch",
+      "description": "Dark Souls is a challenging action RPG known for its interconnected world, difficult combat, mysterious lore, and unforgiving enemies.",
+      "hoursPlayed": "40",
+      "review": "9/10",
+      "images": "assets/games/dark-souls.jpg"
+    },
+    {
+      "name": "The Witcher 3: Wild Hunt",
+      "genre": "Action RPG",
+      "platform": "PC, PS4, PS5, Xbox One, Xbox Series X, Xbox Series S, Nintendo Switch",
+      "description": "The Witcher 3: Wild Hunt is an open-world action RPG following Geralt of Rivia as he searches for Ciri across a vast fantasy world filled with quests, monsters, and political conflicts.",
+      "hoursPlayed": "100",
+      "review": "10/10",
+      "images": "assets/games/the-witcher-3.jpg"
+    },
+    {
+      "name": "R.E.P.O.",
+      "genre": "Co-op Horror",
+      "platform": "PC",
+      "description": "R.E.P.O. is a cooperative horror game where players work together to collect valuable items while trying to survive terrifying monsters and unpredictable situations.",
+      "hoursPlayed": "20",
+      "review": "9/10",
+      "images": "assets/games/repo.jpg"
+    },
+    {
+      "name": "Lethal Company",
+      "genre": "Co-op Horror",
+      "platform": "PC",
+      "description": "Lethal Company is a cooperative horror game where players explore abandoned moons, collect scrap, and try to meet their company's profit quota while surviving dangerous creatures.",
+      "hoursPlayed": "25",
+      "review": "9/10",
+      "images": "assets/games/lethal-company.jpg"
+    },
+    {
+      "name": "Escape the Backrooms",
+      "genre": "Co-op Horror",
+      "platform": "PC",
+      "description": "Escape the Backrooms is a cooperative horror game where players explore mysterious and terrifying levels inspired by the Backrooms while solving puzzles and trying to escape.",
+      "hoursPlayed": "15",
+      "review": "8/10",
+      "images": "assets/games/escape-the-backrooms.jpg"
+    }
+  ]
+}
