@@ -1,4 +1,10 @@
 {
+  "dashboard": {
+    "hoursPlayed": 200,
+    "games": 6,
+    "averageReview": 7.5,
+    "platforms": 2
+  },
   "games": [
     {
       "name": "Minecraft",
@@ -34,7 +40,7 @@
       "description": "The Last of Us Part II is a story-driven action-adventure game that follows Ellie through a brutal journey of survival, revenge, and loss.",
       "hoursPlayed": "25",
       "review": "9/10",
-      "images": "assets/games/tlou2.jpg"
+      "images": "assets/games/tlou2.png"
     },
     {
       "name": "A Plague Tale: Innocence",
