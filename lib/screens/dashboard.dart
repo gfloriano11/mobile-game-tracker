@@ -38,24 +38,29 @@ class _Dashboard extends State<Dashboard> {
       backgroundColor: const Color.fromARGB(255, 253, 253, 253),
       body: Center(
         child: SingleChildScrollView(
+          padding: EdgeInsets.only(top: 16),
           child: SizedBox(
             width: 350,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              spacing: 20,
               children: <Widget>[
                 MainText(text: "Mobile Game Tracker"),
-                DashboardInfo(
-                  gameCount: gameCount,
-                  hoursPlayed: hoursPlayed,
-                  platforms: differentPlatformsCount,
-                  scoreAverage: averageReview,
+                Column(
+                  spacing: 20,
+                  children: [
+                    DashboardInfo(
+                      gameCount: gameCount,
+                      hoursPlayed: hoursPlayed,
+                      platforms: differentPlatformsCount,
+                      scoreAverage: averageReview,
+                    ),
+                    if (games.isNotEmpty)
+                      Column(
+                        spacing: 20,
+                        children: games.map((g) => Info(game: g)).toList(),
+                      ),
+                  ],
                 ),
-                if (games.isNotEmpty)
-                  Column(
-                    spacing: 20,
-                    children: games.map((g) => Info(game: g)).toList(),
-                  ),
               ],
             ),
           ),
