@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Info extends StatefulWidget {
+class GameCard extends StatefulWidget {
   final dynamic game;
-  const Info({super.key, required this.game});
+  const GameCard({super.key, required this.game});
 
   @override
-  State<Info> createState() => _Info();
+  State<GameCard> createState() => _Info();
 }
 
-class _Info extends State<Info> {
+class _Info extends State<GameCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,9 +21,7 @@ class _Info extends State<Info> {
         spacing: 10,
         children: [
           Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-            ),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
             padding: EdgeInsets.all(10),
             child: Image(
               image: AssetImage(widget.game["images"]),
@@ -55,10 +53,14 @@ class _Info extends State<Info> {
                             top: 2,
                             bottom: 2,
                           ),
-                          child: Text(
-                            widget.game["platform"],
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
+
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints(maxWidth: 150),
+                            child: Text(
+                              widget.game["platform"],
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                            ),
                           ),
                         ),
                       ),

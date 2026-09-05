@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_game_tracker/app/json_loader.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/dashboard_info.dart';
-import 'package:mobile_game_tracker/widgets/dashboard/info.dart';
+import 'package:mobile_game_tracker/widgets/dashboard/game_card.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/main_text.dart';
 
 class Dashboard extends StatefulWidget {
@@ -57,7 +57,7 @@ class _Dashboard extends State<Dashboard> {
                     if (games.isNotEmpty)
                       Column(
                         spacing: 20,
-                        children: games.map((g) => Info(game: g)).toList(),
+                        children: games.map((g) => GameCard(game: g)).toList(),
                       ),
                   ],
                 ),
