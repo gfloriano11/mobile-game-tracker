@@ -115,32 +115,70 @@ class _GameDetails extends State<GameDetails> {
 
                                     const SizedBox(height: 10),
 
-                                    Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 12,
-                                        vertical: 6,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                          255,
-                                          255,
-                                          225,
-                                          234,
-                                        ),
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      child: Text(
-                                        widget.game.genre,
-                                        style: const TextStyle(
-                                          color: Color.fromARGB(
-                                            255,
-                                            255,
-                                            85,
-                                            125,
+                                    Wrap(
+                                      spacing: 8,
+                                      runSpacing: 8,
+                                      children: [
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 12,
+                                            vertical: 6,
                                           ),
-                                          fontWeight: FontWeight.w600,
+                                          decoration: BoxDecoration(
+                                            color: const Color.fromARGB(
+                                              255,
+                                              255,
+                                              225,
+                                              234,
+                                            ),
+                                            borderRadius: BorderRadius.circular(
+                                              20,
+                                            ),
+                                          ),
+                                          child: Text(
+                                            widget.game.genre,
+                                            style: const TextStyle(
+                                              color: Color.fromARGB(
+                                                255,
+                                                255,
+                                                85,
+                                                125,
+                                              ),
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
                                         ),
-                                      ),
+
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 12,
+                                            vertical: 6,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: const Color.fromARGB(
+                                              255,
+                                              235,
+                                              235,
+                                              235,
+                                            ),
+                                            borderRadius: BorderRadius.circular(
+                                              20,
+                                            ),
+                                          ),
+                                          child: Text(
+                                            widget.game.platform,
+                                            style: const TextStyle(
+                                              color: Color.fromARGB(
+                                                255,
+                                                80,
+                                                80,
+                                                80,
+                                              ),
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
 
                                     const SizedBox(height: 16),
