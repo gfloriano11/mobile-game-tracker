@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_game_tracker/models/game.dart';
 import 'package:mobile_game_tracker/screens/game_details.dart';
 
 class GameCard extends StatelessWidget {
-  final dynamic game;
+  final Game game;
 
   const GameCard({super.key, required this.game});
 
@@ -32,7 +33,7 @@ class GameCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(6),
                 child: Image(
-                  image: AssetImage(game["images"]),
+                  image: AssetImage(game.images),
                   width: 100,
                   height: 100,
                   fit: BoxFit.cover,
@@ -44,9 +45,9 @@ class GameCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(game["name"], style: const TextStyle(fontSize: 18)),
+                  Text(game.name, style: const TextStyle(fontSize: 18)),
 
-                  Text(game["genre"], style: const TextStyle(fontSize: 14)),
+                  Text(game.genre, style: const TextStyle(fontSize: 14)),
 
                   Row(
                     spacing: 6,
@@ -63,14 +64,14 @@ class GameCard extends StatelessWidget {
                             vertical: 2,
                           ),
                           child: Text(
-                            game["platform"],
+                            game.platform,
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                           ),
                         ),
                       ),
 
-                      Text("${game["hoursPlayed"]}h"),
+                      Text("${game.hoursPlayed}h"),
                     ],
                   ),
                 ],

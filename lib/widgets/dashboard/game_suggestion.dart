@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_game_tracker/models/game.dart';
 import 'package:mobile_game_tracker/screens/game_details.dart';
 
 class GameSuggestion extends StatelessWidget {
-  final dynamic game;
+  final Game game;
 
   const GameSuggestion({super.key, required this.game});
 
@@ -30,7 +31,7 @@ class GameSuggestion extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(6),
                 child: Image(
-                  image: AssetImage(game["images"]),
+                  image: AssetImage(game.images),
                   width: 100,
                   height: 100,
                   fit: BoxFit.cover,
@@ -42,9 +43,9 @@ class GameSuggestion extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(game["name"], style: const TextStyle(fontSize: 18)),
+                  Text(game.name, style: const TextStyle(fontSize: 18)),
 
-                  Text(game["genre"], style: const TextStyle(fontSize: 14)),
+                  Text(game.genre, style: const TextStyle(fontSize: 14)),
 
                   const SizedBox(height: 4),
 
@@ -59,7 +60,7 @@ class GameSuggestion extends StatelessWidget {
                       vertical: 2,
                     ),
                     child: Text(
-                      game["platform"],
+                      game.platform,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                     ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_game_tracker/app/json_loader.dart';
+import 'package:mobile_game_tracker/models/game.dart';
 import 'package:mobile_game_tracker/screens/collection.dart';
 import 'package:mobile_game_tracker/screens/dashboard.dart';
 import 'package:mobile_game_tracker/screens/status.dart';
@@ -12,13 +13,12 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  List<dynamic> games = [];
+  List<Game> games = [];
   int currentIndex = 0;
 
   @override
   void initState() {
     super.initState();
-
     loadGames().then((data) => setState(() => games = data));
   }
 

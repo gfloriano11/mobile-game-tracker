@@ -1,13 +1,14 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:mobile_game_tracker/models/game.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/dashboard_info.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/game_suggestion.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/main_text.dart';
 import 'package:mobile_game_tracker/widgets/shared/game_card.dart';
 
 class Dashboard extends StatefulWidget {
-  final List<dynamic> games;
+  final List<Game> games;
 
   const Dashboard({super.key, required this.games});
 
@@ -16,7 +17,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  dynamic suggestedGame;
+  Game? suggestedGame;
 
   void suggestGame() {
     if (widget.games.isEmpty) return;
@@ -34,10 +35,8 @@ class _DashboardState extends State<Dashboard> {
     double reviews = 0;
 
     for (final game in widget.games) {
-      hoursPlayed += int.tryParse(game["hoursPlayed"].toString()) ?? 0;
-
-      reviews +=
-          double.tryParse(game["review"].toString().replaceAll("/10", "")) ?? 0;
+      hoursPlayed += game.hoursPlayed;
+      reviews += game.review;
     }
 
     final gameCount = widget.games.length;
@@ -46,11 +45,7 @@ class _DashboardState extends State<Dashboard> {
         ? 0.0
         : reviews / widget.games.length;
 
-    final platforms = widget.games
-        .map((game) => game["platform"])
-        .where((platform) => platform != null)
-        .toSet()
-        .length;
+    final platforms = widget.games.map((game) => game.platform).toSet().length;
 
     final recentPlayed = widget.games.take(3).toList();
 
@@ -101,7 +96,7 @@ class _DashboardState extends State<Dashboard> {
 
                     // Sugestão
                     if (suggestedGame != null)
-                      GameSuggestion(game: suggestedGame),
+                      GameSuggestion(game: suggestedGame!),
 
                     if (recentPlayed.isNotEmpty)
                       const Text(

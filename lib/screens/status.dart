@@ -1,8 +1,9 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_game_tracker/models/game.dart';
 
 class Status extends StatelessWidget {
-  final List<dynamic> games;
+  final List<Game> games;
 
   const Status({super.key, required this.games});
 
@@ -12,10 +13,8 @@ class Status extends StatelessWidget {
     double reviews = 0;
 
     for (final game in games) {
-      totalHours += int.tryParse(game["hoursPlayed"].toString()) ?? 0;
-
-      reviews +=
-          double.tryParse(game["review"].toString().replaceAll("/10", "")) ?? 0;
+      totalHours += game.hoursPlayed;
+      reviews += game.review;
     }
 
     final averageReview = games.isEmpty ? 0.0 : reviews / games.length;
@@ -141,8 +140,7 @@ class Status extends StatelessWidget {
     }
 
     final maxHours = games.fold<double>(0, (max, game) {
-      final hours = double.tryParse(game["hoursPlayed"].toString()) ?? 0;
-
+      final hours = double.tryParse(game.hoursPlayed.toString()) ?? 0;
       return hours > max ? hours : max;
     });
 
@@ -167,7 +165,7 @@ class Status extends StatelessWidget {
               final game = games[groupIndex];
 
               return BarTooltipItem(
-                "${game["name"]}\n${rod.toY.toInt()}h",
+                "${game.name}\n${rod.toY.toInt()}h",
                 const TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -209,7 +207,7 @@ class Status extends StatelessWidget {
 
         barGroups: List.generate(games.length, (index) {
           final hours =
-              double.tryParse(games[index]["hoursPlayed"].toString()) ?? 0;
+              double.tryParse(games[index].hoursPlayed.toString()) ?? 0;
 
           return BarChartGroupData(
             x: index,

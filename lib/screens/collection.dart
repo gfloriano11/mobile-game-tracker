@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_game_tracker/models/game.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/main_text.dart';
 import 'package:mobile_game_tracker/widgets/shared/game_card.dart';
 
 class Collection extends StatelessWidget {
-  final List<dynamic> games;
+  final List<Game> games;
 
   const Collection({super.key, required this.games});
 
