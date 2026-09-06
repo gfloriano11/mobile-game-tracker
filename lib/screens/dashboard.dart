@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_game_tracker/app/json_loader.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/dashboard_info.dart';
-import 'package:mobile_game_tracker/widgets/dashboard/game_card.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/main_text.dart';
+import 'package:mobile_game_tracker/widgets/shared/game_card.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});

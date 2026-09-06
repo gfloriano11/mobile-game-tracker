@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobile_game_tracker/screens/collection.dart';
 import 'package:mobile_game_tracker/screens/dashboard.dart';
+import 'package:mobile_game_tracker/screens/game_details.dart';
+
 // import 'package:mobile_game_tracker/screens/status.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -48,6 +50,14 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: '/games',
           builder: (context, state) => const Collection(),
+        ),
+        GoRoute(
+          path: '/games/:id',
+          builder: (context, state) {
+            final id = state.pathParameters['id']!;
+
+            return GameDetails(id: id);
+          },
         ),
         // GoRoute(path: '/status', builder: (context, state) => const Status()),
       ],

@@ -7,6 +7,7 @@
   },
   "games": [
     {
+      "id": 1,
       "name": "Minecraft",
       "genre": "Sandbox",
       "platform": "PC, Mobile, PS3, PS4, PS5, Xbox 360, Xbox One, Xbox Series X, Xbox Series S, Nintendo Switch, Nintendo Switch 2",
@@ -17,6 +18,7 @@
       "wasPlayedRecently": true
     },
     {
+      "id": 2,
       "name": "Red Dead Redemption 2",
       "genre": "Action-Adventure",
       "platform": "PC, PS4, Xbox One",
@@ -26,6 +28,7 @@
       "images": "assets/games/rdr2.jpg"
     },
     {
+      "id": 3,
       "name": "The Last of Us",
       "genre": "Action-Adventure",
       "platform": "PS3, PS4, PS5, PC",
@@ -35,6 +38,7 @@
       "images": "assets/games/tlou1.jpg"
     },
     {
+      "id": 4,
       "name": "The Last of Us Part II",
       "genre": "Action-Adventure",
       "platform": "PS4, PS5, PC",
@@ -45,6 +49,7 @@
       "wasPlayedRecently": true
     },
     {
+      "id": 5,
       "name": "A Plague Tale: Innocence",
       "genre": "Action-Adventure",
       "platform": "PC, PS4, PS5, Xbox One, Xbox Series X, Xbox Series S, Nintendo Switch",
@@ -54,6 +59,7 @@
       "images": "assets/games/plague-tale.jpg"
     },
     {
+      "id": 6,
       "name": "EA Sports FC 26",
       "genre": "Sports",
       "platform": "PC, PS4, PS5, Xbox One, Xbox Series X, Xbox Series S, Nintendo Switch, Nintendo Switch 2",
@@ -64,6 +70,7 @@
       "wasPlayedRecently": true
     },
     {
+      "id": 7,
       "name": "Dark Souls",
       "genre": "Action RPG",
       "platform": "PC, PS3, PS4, Xbox 360, Xbox One, Nintendo Switch",
@@ -73,6 +80,7 @@
       "images": "assets/games/dark-souls.jpg"
     },
     {
+      "id": 8,
       "name": "The Witcher 3: Wild Hunt",
       "genre": "Action RPG",
       "platform": "PC, PS4, PS5, Xbox One, Xbox Series X, Xbox Series S, Nintendo Switch",
@@ -82,6 +90,7 @@
       "images": "assets/games/the-witcher-3.jpg"
     },
     {
+      "id": 9,
       "name": "R.E.P.O.",
       "genre": "Co-op Horror",
       "platform": "PC",
@@ -91,6 +100,7 @@
       "images": "assets/games/repo.jpg"
     },
     {
+      "id": 10,
       "name": "Lethal Company",
       "genre": "Co-op Horror",
       "platform": "PC",
@@ -100,6 +110,7 @@
       "images": "assets/games/lethal-company.jpg"
     },
     {
+      "id": 11,
       "name": "Escape the Backrooms",
       "genre": "Co-op Horror",
       "platform": "PC",
