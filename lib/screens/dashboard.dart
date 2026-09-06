@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_game_tracker/models/game.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/dashboard_info.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/game_suggestion.dart';
-import 'package:mobile_game_tracker/widgets/dashboard/main_text.dart';
+import 'package:mobile_game_tracker/widgets/shared/main_text.dart';
 import 'package:mobile_game_tracker/widgets/shared/game_card.dart';
 
 class Dashboard extends StatefulWidget {
