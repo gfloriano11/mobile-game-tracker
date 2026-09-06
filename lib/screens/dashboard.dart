@@ -13,6 +13,7 @@ class Dashboard extends StatefulWidget {
 
 class _Dashboard extends State<Dashboard> {
   List<dynamic> games = [];
+  List<dynamic> recentPlayed = [];
   int hoursPlayed = 0;
   int gameCount = 6;
   int differentPlatformsCount = 0;
@@ -21,7 +22,16 @@ class _Dashboard extends State<Dashboard> {
   @override
   void initState() {
     super.initState();
-    loadGames().then((data) => setState(() => games = data));
+    loadGames().then(
+      (data) => setState(() {
+        games = data;
+        recentPlayed = games
+            .where(
+              (g) => g["wasPlayedRecently"] != null && g["wasPlayedRecently"],
+            )
+            .toList();
+      }),
+    );
     loadData().then(
       (data) => setState(() {
         hoursPlayed = data["hoursPlayed"] ?? 0;
@@ -42,10 +52,11 @@ class _Dashboard extends State<Dashboard> {
           child: SizedBox(
             width: 350,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              // mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 MainText(text: "Mobile Game Tracker"),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: 20,
                   children: [
                     DashboardInfo(
@@ -54,11 +65,17 @@ class _Dashboard extends State<Dashboard> {
                       platforms: differentPlatformsCount,
                       scoreAverage: averageReview,
                     ),
-                    if (games.isNotEmpty)
-                      Column(
-                        spacing: 20,
-                        children: games.map((g) => GameCard(game: g)).toList(),
+                    if (recentPlayed.isNotEmpty)
+                      Text(
+                        style: TextStyle(fontSize: 20),
+                        "Jogados recentemente:",
                       ),
+                    Column(
+                      spacing: 20,
+                      children: recentPlayed
+                          .map((g) => GameCard(game: g))
+                          .toList(),
+                    ),
                   ],
                 ),
               ],

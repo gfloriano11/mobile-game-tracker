@@ -13,7 +13,8 @@
       "description": "Minecraft is a 3D sandbox video game made of blocks where players explore, gather resources, and build anything they can imagine.",
       "hoursPlayed": "100",
       "review": "10/10",
-      "images": "assets/games/minecraft.jpg"
+      "images": "assets/games/minecraft.jpg",
+      "wasPlayedRecently": true
     },
     {
       "name": "Red Dead Redemption 2",
@@ -40,7 +41,8 @@
       "description": "The Last of Us Part II is a story-driven action-adventure game that follows Ellie through a brutal journey of survival, revenge, and loss.",
       "hoursPlayed": "25",
       "review": "9/10",
-      "images": "assets/games/tlou2.png"
+      "images": "assets/games/tlou2.png",
+      "wasPlayedRecently": true
     },
     {
       "name": "A Plague Tale: Innocence",
@@ -58,7 +60,8 @@
       "description": "EA Sports FC 26 is a football simulation game featuring real-world teams, players, competitions, and multiple game modes.",
       "hoursPlayed": "50",
       "review": "8/10",
-      "images": "assets/games/eafc26.jpg"
+      "images": "assets/games/eafc26.jpg",
+      "wasPlayedRecently": true
     },
     {
       "name": "Dark Souls",
