@@ -2,35 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:mobile_game_tracker/widgets/game_details.dart/count_info_card.dart';
 
 class GameDetails extends StatefulWidget {
-  final String id;
-  final List<dynamic> games;
+  final dynamic game;
 
-  const GameDetails({super.key, required this.id, required this.games});
+  const GameDetails({super.key, required this.game});
 
   @override
   State<GameDetails> createState() => _GameDetails();
 }
 
 class _GameDetails extends State<GameDetails> {
-  late dynamic game;
-
   int hoursPlayed = 0;
   int review = 0;
 
   @override
   void initState() {
     super.initState();
-    game = widget.games.firstWhere((g) => g["id"].toString() == widget.id);
-
-    hoursPlayed = int.tryParse(game["hoursPlayed"].toString()) ?? 0;
-
-    review = int.tryParse(game["review"].toString().replaceAll("/10", "")) ?? 0;
+    hoursPlayed = int.tryParse(widget.game["hoursPlayed"].toString()) ?? 0;
+    review = int.tryParse(widget.game["review"].toString().replaceAll("/10", "")) ?? 0;
   }
 
   void increaseHours() {
     setState(() {
       hoursPlayed++;
-      game["hoursPlayed"] = hoursPlayed;
+      widget.game["hoursPlayed"] = hoursPlayed;
     });
   }
 
@@ -39,7 +33,7 @@ class _GameDetails extends State<GameDetails> {
 
     setState(() {
       hoursPlayed--;
-      game["hoursPlayed"] = hoursPlayed;
+      widget.game["hoursPlayed"] = hoursPlayed;
     });
   }
 
@@ -48,7 +42,7 @@ class _GameDetails extends State<GameDetails> {
 
     setState(() {
       review++;
-      game["review"] = review;
+      widget.game["review"] = review;
     });
   }
 
@@ -57,13 +51,17 @@ class _GameDetails extends State<GameDetails> {
 
     setState(() {
       review--;
-      game["review"] = review;
+      widget.game["review"] = review;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Text("Detalhes"),
+      ),
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.only(top: 16),
@@ -84,7 +82,7 @@ class _GameDetails extends State<GameDetails> {
                         Column(
                           children: [
                             Image.asset(
-                              game["images"],
+                              widget.game["images"],
                               width: double.infinity,
                               height: 250,
                               fit: BoxFit.cover,
@@ -105,7 +103,7 @@ class _GameDetails extends State<GameDetails> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      game["name"],
+                                      widget.game["name"],
                                       style: const TextStyle(
                                         fontSize: 25,
                                         fontWeight: FontWeight.bold,
@@ -130,7 +128,7 @@ class _GameDetails extends State<GameDetails> {
                                         borderRadius: BorderRadius.circular(20),
                                       ),
                                       child: Text(
-                                        game["genre"],
+                                        widget.game["genre"],
                                         style: const TextStyle(
                                           color: Color.fromARGB(
                                             255,
@@ -146,7 +144,7 @@ class _GameDetails extends State<GameDetails> {
                                     const SizedBox(height: 16),
 
                                     Text(
-                                      game["description"],
+                                      widget.game["description"],
                                       style: const TextStyle(
                                         fontSize: 15,
                                         height: 1.5,

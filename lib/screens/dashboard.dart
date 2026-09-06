@@ -1,35 +1,58 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/dashboard_info.dart';
+import 'package:mobile_game_tracker/widgets/dashboard/game_suggestion.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/main_text.dart';
 import 'package:mobile_game_tracker/widgets/shared/game_card.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   final List<dynamic> games;
 
   const Dashboard({super.key, required this.games});
+
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  dynamic suggestedGame;
+
+  void suggestGame() {
+    if (widget.games.isEmpty) return;
+
+    final random = Random();
+
+    setState(() {
+      suggestedGame = widget.games[random.nextInt(widget.games.length)];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     int hoursPlayed = 0;
     double reviews = 0;
 
-    for (final game in games) {
+    for (final game in widget.games) {
       hoursPlayed += int.tryParse(game["hoursPlayed"].toString()) ?? 0;
+
       reviews +=
           double.tryParse(game["review"].toString().replaceAll("/10", "")) ?? 0;
     }
 
-    final gameCount = games.length;
+    final gameCount = widget.games.length;
 
-    final averageReview = games.isEmpty ? 0.0 : (reviews / games.length);
+    final averageReview = widget.games.isEmpty
+        ? 0.0
+        : reviews / widget.games.length;
 
-    final platforms = games
+    final platforms = widget.games
         .map((game) => game["platform"])
         .where((platform) => platform != null)
         .toSet()
         .length;
 
-    final recentPlayed = games.take(3).toList();
+    final recentPlayed = widget.games.take(3).toList();
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 253, 253, 253),
@@ -56,6 +79,29 @@ class Dashboard extends StatelessWidget {
                           double.tryParse(averageReview.toStringAsFixed(1)) ??
                           0,
                     ),
+
+                    // Botão "O que jogar?"
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color.fromARGB(
+                            255,
+                            235,
+                            235,
+                            235,
+                          ),
+                          foregroundColor: Colors.black87,
+                          elevation: 0,
+                        ),
+                        onPressed: suggestGame,
+                        child: const Text("O que jogar?"),
+                      ),
+                    ),
+
+                    // Sugestão
+                    if (suggestedGame != null)
+                      GameSuggestion(game: suggestedGame),
 
                     if (recentPlayed.isNotEmpty)
                       const Text(

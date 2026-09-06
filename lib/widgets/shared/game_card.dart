@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:mobile_game_tracker/screens/game_details.dart';
 
 class GameCard extends StatelessWidget {
   final dynamic game;
 
   const GameCard({super.key, required this.game});
 
-  void openGame(BuildContext context, int id) {
-    context.push('/games/$id');
+  void openGame(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => GameDetails(game: game)),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        openGame(context, game["id"]);
+        openGame(context);
       },
       child: Container(
         decoration: BoxDecoration(
