@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile_game_tracker/models/game.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/dashboard_info.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/game_suggestion.dart';
-import 'package:mobile_game_tracker/widgets/shared/main_text.dart';
 import 'package:mobile_game_tracker/widgets/shared/game_card.dart';
+import 'package:mobile_game_tracker/widgets/shared/main_text.dart';
 
 class Dashboard extends StatefulWidget {
   final List<Game> games;
@@ -108,7 +108,10 @@ class _DashboardState extends State<Dashboard> {
 
                     // Sugestão
                     if (suggestedGame != null)
-                      GameSuggestion(game: suggestedGame!),
+                      GameSuggestion(
+                        game: suggestedGame!,
+                        onGameUpdated: widget.onGameUpdated,
+                      ),
 
                     if (recentPlayed.isNotEmpty)
                       const Text(
