@@ -25,43 +25,51 @@ class DashboardInfo extends StatelessWidget {
     ];
 
     return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: const Color.fromARGB(179, 241, 241, 241),
       ),
-      padding: const EdgeInsets.all(10),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          const Text(
+            "HORAS JOGADAS",
+            style: TextStyle(
+              color: Color.fromARGB(255, 99, 99, 99),
+              fontSize: 13,
+            ),
+          ),
+
+          const SizedBox(height: 2),
+
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.baseline,
+            textBaseline: TextBaseline.alphabetic,
             children: [
-              const Text(
-                "HORAS JOGADAS",
-                style: TextStyle(color: Color.fromARGB(255, 99, 99, 99)),
+              Text(
+                hoursPlayed.toString(),
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.baseline,
-                textBaseline: TextBaseline.alphabetic,
-                children: [
-                  Text(
-                    hoursPlayed.toString(),
-                    style: const TextStyle(fontSize: 30),
-                  ),
-                  const Text(" h no total"),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                spacing: 10,
-                children: infos.map((info) {
-                  return CardInfo(
-                    mainText: info["mainText"]!,
-                    subtitle: info["subtitle"]!,
-                  );
-                }).toList(),
-              ),
+              const SizedBox(width: 5),
+              const Text("h no total"),
             ],
+          ),
+
+          const SizedBox(height: 16),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: infos.map((info) {
+              return CardInfo(
+                mainText: info["mainText"]!,
+                subtitle: info["subtitle"]!,
+              );
+            }).toList(),
           ),
         ],
       ),

@@ -59,8 +59,11 @@ class Dashboard extends StatelessWidget {
 
                     if (recentPlayed.isNotEmpty)
                       const Text(
-                        "Jogados recentemente:",
-                        style: TextStyle(fontSize: 20),
+                        "Jogados recentemente",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
 
                     Column(

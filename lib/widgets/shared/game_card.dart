@@ -26,11 +26,14 @@ class GameCard extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.all(10),
-              child: Image(
-                image: AssetImage(game["images"]),
-                width: 100,
-                height: 100,
-                fit: BoxFit.cover,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(6),
+                child: Image(
+                  image: AssetImage(game["images"]),
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
 

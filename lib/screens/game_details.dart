@@ -19,7 +19,6 @@ class _GameDetails extends State<GameDetails> {
   @override
   void initState() {
     super.initState();
-    debugPrint("aqui");
     game = widget.games.firstWhere((g) => g["id"].toString() == widget.id);
 
     hoursPlayed = int.tryParse(game["hoursPlayed"].toString()) ?? 0;
@@ -28,25 +27,37 @@ class _GameDetails extends State<GameDetails> {
   }
 
   void increaseHours() {
-    setState(() => hoursPlayed++);
+    setState(() {
+      hoursPlayed++;
+      game["hoursPlayed"] = hoursPlayed;
+    });
   }
 
   void decreaseHours() {
     if (hoursPlayed <= 0) return;
 
-    setState(() => hoursPlayed--);
+    setState(() {
+      hoursPlayed--;
+      game["hoursPlayed"] = hoursPlayed;
+    });
   }
 
   void increaseReview() {
     if (review >= 10) return;
 
-    setState(() => review++);
+    setState(() {
+      review++;
+      game["review"] = review;
+    });
   }
 
   void decreaseReview() {
     if (review <= 0) return;
 
-    setState(() => review--);
+    setState(() {
+      review--;
+      game["review"] = review;
+    });
   }
 
   @override
