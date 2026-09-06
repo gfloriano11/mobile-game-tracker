@@ -35,14 +35,7 @@ class _DashboardState extends State<Dashboard> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    debugPrint("Dashboard criada");
-  }
-
-  @override
   Widget build(BuildContext context) {
-    debugPrint("Dashboard BUILD");
     int hoursPlayed = 0;
     double reviews = 0;
 
