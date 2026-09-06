@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_game_tracker/models/game.dart';
-import 'package:mobile_game_tracker/widgets/shared/main_text.dart';
 import 'package:mobile_game_tracker/widgets/shared/game_card.dart';
+import 'package:mobile_game_tracker/widgets/shared/main_text.dart';
 
 class Collection extends StatelessWidget {
   final List<Game> games;
