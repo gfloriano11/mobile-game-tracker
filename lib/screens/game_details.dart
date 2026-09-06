@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_game_tracker/widgets/game_details.dart/count_info_card.dart';
 
 class GameDetails extends StatefulWidget {
   final String id;
@@ -168,7 +169,7 @@ class _GameDetails extends State<GameDetails> {
                         // =========================
                         // HORAS JOGADAS
                         // =========================
-                        _buildCounterCard(
+                        CountInfoCard(
                           title: "HORAS JOGADAS",
                           subtitle: "Mínimo 0h",
                           value: "${hoursPlayed}h",
@@ -180,8 +181,8 @@ class _GameDetails extends State<GameDetails> {
 
                         // =========================
                         // AVALIAÇÃO
-                        // =========================
-                        _buildCounterCard(
+                        // =====_buildCounterCard====================
+                        CountInfoCard(
                           title: "AVALIAÇÃO ATUAL",
                           subtitle: "Intervalo 0 a 10",
                           value: "$review/10",
@@ -202,109 +203,4 @@ class _GameDetails extends State<GameDetails> {
       ),
     );
   }
-}
-
-Widget _buildCounterCard({
-  required String title,
-  required String subtitle,
-  required String value,
-  required VoidCallback onDecrease,
-  required VoidCallback onIncrease,
-  Color? valueColor,
-}) {
-  return Container(
-    width: double.infinity,
-
-    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-
-    decoration: BoxDecoration(
-      color: const Color.fromARGB(179, 241, 241, 241),
-      borderRadius: BorderRadius.circular(22),
-    ),
-
-    child: Column(
-      children: [
-        // TÍTULO
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 12,
-                letterSpacing: 0.5,
-                color: Color.fromARGB(255, 115, 130, 165),
-              ),
-            ),
-
-            Text(
-              subtitle,
-              style: const TextStyle(
-                fontSize: 11,
-                color: Color.fromARGB(255, 145, 155, 180),
-              ),
-            ),
-          ],
-        ),
-
-        const SizedBox(height: 12),
-
-        // CONTROLES
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-          children: [
-            _buildControlButton(
-              icon: Icons.remove,
-              onPressed: onDecrease,
-              isDecrease: true,
-            ),
-
-            Text(
-              value,
-              style: TextStyle(
-                fontSize: 38,
-                fontWeight: FontWeight.bold,
-                color: valueColor ?? const Color.fromARGB(255, 25, 43, 82),
-              ),
-            ),
-
-            _buildControlButton(icon: Icons.add, onPressed: onIncrease),
-          ],
-        ),
-      ],
-    ),
-  );
-}
-
-Widget _buildControlButton({
-  required IconData icon,
-  required VoidCallback onPressed,
-  bool isDecrease = false,
-}) {
-  return SizedBox(
-    width: 48,
-    height: 48,
-
-    child: Material(
-      color: isDecrease
-          ? const Color.fromARGB(255, 213, 222, 242)
-          : const Color.fromARGB(255, 54, 119, 240),
-
-      borderRadius: BorderRadius.circular(30),
-
-      child: InkWell(
-        borderRadius: BorderRadius.circular(30),
-        onTap: onPressed,
-
-        child: Icon(
-          icon,
-          color: isDecrease
-              ? const Color.fromARGB(255, 90, 108, 145)
-              : Colors.white,
-        ),
-      ),
-    ),
-  );
 }
