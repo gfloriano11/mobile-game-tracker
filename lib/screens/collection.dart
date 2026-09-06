@@ -1,23 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_game_tracker/app/json_loader.dart';
 import 'package:mobile_game_tracker/widgets/dashboard/main_text.dart';
 import 'package:mobile_game_tracker/widgets/shared/game_card.dart';
 
-class Collection extends StatefulWidget {
-  const Collection({super.key});
+class Collection extends StatelessWidget {
+  final List<dynamic> games;
 
-  @override
-  State<Collection> createState() => _Collection();
-}
-
-class _Collection extends State<Collection> {
-  List<dynamic> games = [];
-
-  @override
-  void initState() {
-    super.initState();
-    loadGames().then((data) => setState(() => games = data));
-  }
+  const Collection({super.key, required this.games});
 
   @override
   Widget build(BuildContext context) {
@@ -25,22 +13,18 @@ class _Collection extends State<Collection> {
       backgroundColor: const Color.fromARGB(255, 253, 253, 253),
       body: Center(
         child: SingleChildScrollView(
-          padding: EdgeInsets.only(top: 16),
+          padding: const EdgeInsets.only(top: 16),
           child: SizedBox(
             width: 350,
             child: Column(
-              // mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
+              children: [
                 MainText(text: "Biblioteca"),
+
+                const SizedBox(height: 20),
+
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: 20,
-                  children: [
-                    Column(
-                      spacing: 20,
-                      children: games.map((g) => GameCard(game: g)).toList(),
-                    ),
-                  ],
+                  children: games.map((game) => GameCard(game: game)).toList(),
                 ),
               ],
             ),

@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_game_tracker/app/json_loader.dart';
 
 class GameDetails extends StatefulWidget {
   final String id;
-  const GameDetails({super.key, required this.id});
+  final List<dynamic> games;
+
+  const GameDetails({super.key, required this.id, required this.games});
 
   @override
   State<GameDetails> createState() => _GameDetails();
 }
 
 class _GameDetails extends State<GameDetails> {
-  dynamic game = {};
+  late dynamic game;
 
   int hoursPlayed = 0;
   int review = 0;
@@ -18,22 +19,12 @@ class _GameDetails extends State<GameDetails> {
   @override
   void initState() {
     super.initState();
+    debugPrint("aqui");
+    game = widget.games.firstWhere((g) => g["id"].toString() == widget.id);
 
-    loadGames().then((data) {
-      final foundGame = data
-          .where((g) => g["id"].toString() == widget.id.toString())
-          .first;
+    hoursPlayed = int.tryParse(game["hoursPlayed"].toString()) ?? 0;
 
-      setState(() {
-        game = foundGame;
-        hoursPlayed = int.tryParse(foundGame["hoursPlayed"].toString()) ?? 0;
-        review =
-            int.tryParse(
-              foundGame["review"].toString().replaceAll("/10", ""),
-            ) ??
-            0;
-      });
-    });
+    review = int.tryParse(game["review"].toString().replaceAll("/10", "")) ?? 0;
   }
 
   void increaseHours() {
@@ -42,26 +33,28 @@ class _GameDetails extends State<GameDetails> {
 
   void decreaseHours() {
     if (hoursPlayed <= 0) return;
+
     setState(() => hoursPlayed--);
   }
 
   void increaseReview() {
     if (review >= 10) return;
+
     setState(() => review++);
   }
 
   void decreaseReview() {
     if (review <= 0) return;
+
     setState(() => review--);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color.fromARGB(255, 253, 253, 253),
       body: Center(
         child: SingleChildScrollView(
-          padding: EdgeInsets.only(top: 16),
+          padding: const EdgeInsets.only(top: 16),
           child: SizedBox(
             width: 350,
             child: Column(
@@ -89,7 +82,10 @@ class _GameDetails extends State<GameDetails> {
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: const Color.fromARGB(179, 241, 241, 241),
-                                borderRadius: BorderRadius.only(bottomRight: Radius.circular(25), bottomLeft: Radius.circular(25)),
+                                borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(25),
+                                  bottomLeft: Radius.circular(25),
+                                ),
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(20),
