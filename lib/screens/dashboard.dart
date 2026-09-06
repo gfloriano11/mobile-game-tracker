@@ -9,8 +9,13 @@ import 'package:mobile_game_tracker/widgets/shared/game_card.dart';
 
 class Dashboard extends StatefulWidget {
   final List<Game> games;
+  final VoidCallback onGameUpdated;
 
-  const Dashboard({super.key, required this.games});
+  const Dashboard({
+    super.key,
+    required this.games,
+    required this.onGameUpdated,
+  });
 
   @override
   State<Dashboard> createState() => _DashboardState();
@@ -30,7 +35,14 @@ class _DashboardState extends State<Dashboard> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    debugPrint("Dashboard criada");
+  }
+
+  @override
   Widget build(BuildContext context) {
+    debugPrint("Dashboard BUILD");
     int hoursPlayed = 0;
     double reviews = 0;
 
@@ -110,7 +122,12 @@ class _DashboardState extends State<Dashboard> {
                     Column(
                       spacing: 20,
                       children: recentPlayed
-                          .map((game) => GameCard(game: game))
+                          .map(
+                            (game) => GameCard(
+                              game: game,
+                              onGameUpdated: widget.onGameUpdated,
+                            ),
+                          )
                           .toList(),
                     ),
                   ],

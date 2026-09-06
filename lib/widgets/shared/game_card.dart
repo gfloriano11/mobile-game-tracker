@@ -4,22 +4,23 @@ import 'package:mobile_game_tracker/screens/game_details.dart';
 
 class GameCard extends StatelessWidget {
   final Game game;
+  final VoidCallback onGameUpdated;
 
-  const GameCard({super.key, required this.game});
+  const GameCard({super.key, required this.game, required this.onGameUpdated});
 
-  void openGame(BuildContext context) {
-    Navigator.push(
+  Future<void> openGame(BuildContext context) async {
+    await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => GameDetails(game: game)),
     );
+
+    onGameUpdated();
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        openGame(context);
-      },
+      onTap: () => openGame(context),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),

@@ -5,8 +5,13 @@ import 'package:mobile_game_tracker/widgets/shared/game_card.dart';
 
 class Collection extends StatelessWidget {
   final List<Game> games;
+  final VoidCallback onGameUpdated;
 
-  const Collection({super.key, required this.games});
+  const Collection({
+    super.key,
+    required this.games,
+    required this.onGameUpdated,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +30,12 @@ class Collection extends StatelessWidget {
 
                 Column(
                   spacing: 20,
-                  children: games.map((game) => GameCard(game: game)).toList(),
+                  children: games
+                      .map(
+                        (game) =>
+                            GameCard(game: game, onGameUpdated: onGameUpdated),
+                      )
+                      .toList(),
                 ),
               ],
             ),

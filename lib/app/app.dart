@@ -25,8 +25,18 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     final pages = [
-      Dashboard(games: games),
-      Collection(games: games),
+      Dashboard(
+        games: games,
+        onGameUpdated: () {
+          setState(() {});
+        },
+      ),
+      Collection(
+        games: games,
+        onGameUpdated: () {
+          setState(() {});
+        },
+      ),
       Status(games: games),
     ];
 
