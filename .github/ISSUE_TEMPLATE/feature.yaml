@@ -1,0 +1,51 @@
+name: Nova funcionalidade
+description: Proponha uma melhoria para o Mobile Game Tracker
+title: "feat: "
+labels: "enhancement"
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objetivo
+      description: Descreva o que precisa ser implementado.
+      placeholder: Permitir adicionar jogos à biblioteca.
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivação
+      description: Por que essa funcionalidade é útil?
+      placeholder: Explique o problema ou a necessidade.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento esperado
+      description: Como a funcionalidade deve funcionar?
+      placeholder: Descreva o resultado esperado.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Critérios de aceitação
+      description: Como verificar que a implementação está concluída?
+      value: |
+        - [ ] O comportamento principal está implementado.
+        - [ ] Entradas inválidas ou situações de erro são tratadas.
+        - [ ] Os testes relevantes foram implementados.
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Observações
+      description: Inclua detalhes adicionais, se necessário.
+    validations:
+      required: false

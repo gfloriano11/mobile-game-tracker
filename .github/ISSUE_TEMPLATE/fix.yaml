@@ -1,0 +1,71 @@
+name: Reportar defeito
+description: Relate um comportamento inesperado no Mobile Game Tracker
+title: "fix: "
+labels: "bug"
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrição
+      description: O que está acontecendo?
+      placeholder: Descreva o problema encontrado.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Como reproduzir
+      description: Informe os passos para reproduzir o problema.
+      placeholder: |
+        1. Abra o aplicativo.
+        2. Acesse a funcionalidade.
+        3. Observe o comportamento inesperado.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento esperado
+      description: O que deveria acontecer?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamento atual
+      description: O que acontece atualmente?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Plataforma
+      description: Onde o problema ocorreu?
+      options:
+        - Android
+        - iOS
+        - Web
+        - Outra
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Versão do aplicativo
+      description: Informe a versão, se souber.
+      placeholder: 1.0.0
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Informações adicionais
+      description: Inclua capturas de tela ou outros detalhes relevantes.
+    validations:
+      required: false
