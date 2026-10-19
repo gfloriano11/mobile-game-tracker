@@ -1,7 +1,7 @@
 
 ---
-name: Feature request
-about: Propor uma melhoria para o Mobile Game Tracker
+name: MTG - Nova funcionalidade
+about: Template personalizado do Mobile Game Tracker
 title: "feat: "
 labels: enhancement
 assignees: ""
