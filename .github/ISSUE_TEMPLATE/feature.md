@@ -1,10 +1,10 @@
-
 ---
 name: MTG - Nova funcionalidade
 about: Template personalizado do Mobile Game Tracker
 title: "feat: "
 labels: enhancement
 assignees: ""
+
 ---
 
 ## Objetivo
