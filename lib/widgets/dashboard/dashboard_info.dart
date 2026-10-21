@@ -63,11 +63,15 @@ class DashboardInfo extends StatelessWidget {
           const SizedBox(height: 16),
 
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: infos.map((info) {
-              return CardInfo(
-                mainText: info["mainText"]!,
-                subtitle: info["subtitle"]!,
+              return Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  child: CardInfo(
+                    mainText: info["mainText"]!,
+                    subtitle: info["subtitle"]!,
+                  ),
+                ),
               );
             }).toList(),
           ),
