@@ -4,6 +4,7 @@ import 'package:mobile_game_tracker/models/game.dart';
 import 'package:mobile_game_tracker/screens/collection.dart';
 import 'package:mobile_game_tracker/screens/dashboard.dart';
 import 'package:mobile_game_tracker/screens/status.dart';
+import 'package:mobile_game_tracker/screens/store.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -37,6 +38,7 @@ class _AppState extends State<App> {
           setState(() {});
         },
       ),
+      Store(games: games),
       Status(games: games),
     ];
 
@@ -77,6 +79,11 @@ class _AppState extends State<App> {
               icon: Icon(Icons.sports_esports_outlined),
               selectedIcon: Icon(Icons.sports_esports),
               label: 'Jogos',
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.storefront_outlined),
+              selectedIcon: Icon(Icons.storefront),
+              label: 'Loja',
             ),
             NavigationDestination(
               icon: Icon(Icons.bar_chart_outlined),
