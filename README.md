@@ -1,144 +1,144 @@
 # Mobile Game Tracker
 
-A Flutter application for organizing and tracking a personal video game library. This project was developed as part of mobile development coursework.
+Aplicativo desenvolvido em Flutter para organizar e acompanhar uma biblioteca pessoal de jogos. O projeto faz parte das atividades acadêmicas de desenvolvimento mobile.
 
-## Features
+## Funcionalidades
 
-- **Dashboard:** overview of the library, including game count, total playtime, platforms and average rating.
-- **Random suggestion:** choose a game from the library when you are not sure what to play.
-- **Library:** browse the available games and open their details.
-- **Game details:** view a game's information and adjust its recorded playtime and rating.
-- **Statistics:** view total playtime, average ratings and a chart of hours played per game.
+- **Início:** resumo da biblioteca, com quantidade de jogos, horas jogadas, plataformas e média das avaliações.
+- **Sugestão de jogo:** sorteia um jogo da biblioteca para ajudar a decidir o que jogar.
+- **Biblioteca:** permite visualizar os jogos cadastrados e acessar seus detalhes.
+- **Detalhes do jogo:** exibe informações do jogo e permite ajustar as horas jogadas e a avaliação registrada.
+- **Estatísticas:** apresenta o total de horas jogadas, a média das avaliações e um gráfico de horas por jogo.
 
-The current application interface is in Portuguese.
+A interface atual do aplicativo está em português.
 
-## Tech stack
+## Tecnologias
 
-- [Flutter](https://flutter.dev/) and Dart
-- Material Design widgets
-- [fl_chart](https://pub.dev/packages/fl_chart) for charts
-- [google_fonts](https://pub.dev/packages/google_fonts) for typography
-- JSON bundled as an application asset for the initial game catalogue
-- Git and GitHub for version control and collaboration
-- GitHub Actions for continuous integration (CI)
+- [Flutter](https://flutter.dev/) e Dart
+- Widgets do Material Design
+- [fl_chart](https://pub.dev/packages/fl_chart) para gráficos
+- [google_fonts](https://pub.dev/packages/google_fonts) para tipografia
+- Arquivo JSON incluído nos assets para carregar o catálogo inicial de jogos
+- Git e GitHub para controle de versão e colaboração
+- GitHub Actions para integração contínua (CI)
 
-## Requirements
+## Pré-requisitos
 
-Install the following tools before running the project:
+Antes de executar o projeto, instale:
 
-- Flutter SDK on the stable channel, with the Dart SDK included
+- Flutter SDK no canal stable, que inclui o SDK do Dart
 - Git
-- A supported platform toolchain for the target you want to run or build
-- Java 21 for the Android build workflow
+- As ferramentas de desenvolvimento necessárias para a plataforma em que pretende executar ou compilar o aplicativo
+- Java 21 para o workflow de build Android
 
-Check your Flutter installation and available toolchains with:
+Verifique a instalação do Flutter e as ferramentas disponíveis com:
 
 ```bash
 flutter doctor
 ```
 
-## Getting started
+## Como executar
 
-Clone the repository and enter the project directory:
+Clone o repositório e entre na pasta do projeto:
 
 ```bash
 git clone https://github.com/gfloriano11/mobile-game-tracker.git
 cd mobile-game-tracker
 ```
 
-Install the Dart and Flutter dependencies:
+Instale as dependências:
 
 ```bash
 flutter pub get
 ```
 
-Run the application on a connected device, emulator or supported desktop target:
+Execute o aplicativo em um dispositivo conectado, emulador ou plataforma desktop compatível:
 
 ```bash
 flutter run
 ```
 
-List available targets with:
+Para listar os dispositivos e destinos disponíveis:
 
 ```bash
 flutter devices
 ```
 
-## Development checks
+## Análise e testes
 
-Run the same analysis and test commands used by the CI workflow:
+Execute os mesmos comandos de análise estática e testes utilizados pelo CI:
 
 ```bash
 flutter analyze
 flutter test
 ```
 
-## Build commands
+## Compilação
 
-The repository's CI workflow currently builds Android, Windows and Web targets. You can run the corresponding build commands locally:
+O workflow de CI compila atualmente as versões Android, Windows e Web. Os comandos correspondentes são:
 
 ```bash
-# Android APK
+# APK para Android
 flutter build apk --release
 
-# Windows desktop
+# Aplicativo desktop para Windows
 flutter build windows
 
-# Web
+# Aplicativo Web
 flutter build web
 ```
 
-Platform-specific setup may be required for Windows desktop and Android builds. See the [Flutter documentation](https://docs.flutter.dev/) for installation and platform setup instructions.
+A compilação pode exigir configurações específicas da plataforma. Consulte a [documentação oficial do Flutter](https://docs.flutter.dev/) para obter instruções de instalação e configuração.
 
-## Project structure
+## Estrutura do projeto
 
 ```text
 lib/
-├── app/          # Application setup and JSON loading
-├── models/       # Game model
-├── screens/      # Dashboard, library, game details and statistics
-├── widgets/      # Reusable UI components
-└── main.dart     # Application entry point
+├── app/          # Configuração do aplicativo e carregamento do JSON
+├── models/       # Modelo de jogo
+├── screens/      # Início, biblioteca, detalhes e estatísticas
+├── widgets/      # Componentes reutilizáveis da interface
+└── main.dart     # Ponto de entrada do aplicativo
 
 assets/
-├── games.json    # Initial game data
-└── games/        # Game images
+├── games.json    # Dados iniciais dos jogos
+└── games/        # Imagens dos jogos
 
-test/               # Automated tests
+test/               # Testes automatizados
 .github/
-├── ISSUE_TEMPLATE/ # Issue templates
-└── workflows/      # GitHub Actions workflows
+├── ISSUE_TEMPLATE/ # Modelos de Issues
+└── workflows/      # Workflows do GitHub Actions
 ```
 
-## Data and current limitations
+## Dados e limitações atuais
 
-- The initial catalogue is loaded from `assets/games.json`; game images are bundled in `assets/games/`.
-- The project currently uses local asset data and does not provide a backend, account system or remote database.
-- Changes to playtime and ratings are held in application memory. They are not persisted after the app is restarted.
-- The Store page is being developed separately and is not described as an available feature until it is integrated into the application.
-- Automated release artifact publication and continuous delivery (CD) are not configured yet.
+- O catálogo inicial é carregado de `assets/games.json`; as imagens dos jogos ficam em `assets/games/`.
+- O projeto utiliza dados locais e ainda não possui backend, sistema de contas ou banco de dados remoto.
+- As alterações nas horas jogadas e nas avaliações ficam apenas na memória durante a execução. Elas não são persistidas após reiniciar o aplicativo.
+- A página Store está sendo desenvolvida separadamente e não é descrita como funcionalidade disponível antes de ser integrada ao aplicativo.
+- A publicação automatizada de artefatos e a entrega contínua (CD) ainda não estão configuradas.
 
-## Contribution and change workflow
+## Fluxo de contribuição
 
-The project uses GitHub Issues to track work and Pull Requests (PRs) to review changes.
+O projeto utiliza GitHub Issues para organizar o trabalho e Pull Requests (PRs) para revisar as alterações.
 
-1. Create or select an Issue describing the feature, bug or task.
-2. Create a short-lived branch. Use prefixes such as `feat/`, `fix/` or `docs/` (for example, `feat/store-page`).
-3. Make the change and run the relevant analysis and tests.
-4. Open a PR, link the related Issue when applicable, and request a peer review.
-5. Merge after the required review and automated checks have passed, according to the repository's active rules.
+1. Crie ou selecione uma Issue que descreva a funcionalidade, correção ou tarefa.
+2. Crie uma branch de curta duração. Utilize prefixos como `feat/`, `fix/` ou `docs/` (por exemplo, `feat/store-page`).
+3. Implemente a alteração e execute a análise e os testes pertinentes.
+4. Abra um PR, vincule a Issue relacionada quando aplicável e solicite a revisão de um colega.
+5. Faça o merge após a revisão e a aprovação das verificações automatizadas, respeitando as regras ativas do repositório.
 
-## Continuous integration
+## Integração contínua (CI)
 
-The GitHub Actions workflow in `.github/workflows/ci.yaml` runs on pushes and on Pull Requests targeting `main` or `dev`. It:
+O workflow do GitHub Actions em `.github/workflows/ci.yaml` é executado em pushes e em Pull Requests direcionados às branches `main` ou `dev`. Ele:
 
-- Installs project dependencies with `flutter pub get`
-- Runs `flutter analyze`
-- Runs `flutter test`
-- Builds the Android APK, Windows desktop application and Web application
+- Instala as dependências com `flutter pub get`
+- Executa `flutter analyze`
+- Executa `flutter test`
+- Compila o APK Android, o aplicativo desktop para Windows e a versão Web
 
-The workflow validates and builds the project, but it does **not** currently publish build artifacts or create GitHub Releases. Those steps remain future work; this repository does not currently have a configured CD pipeline.
+O workflow valida e compila o projeto, mas **não** publica artefatos de build nem cria GitHub Releases. Essas etapas permanecem como trabalho futuro; o repositório ainda não possui um pipeline de CD configurado.
 
-## License
+## Licença
 
-No license has been specified for this repository yet.
+Nenhuma licença foi especificada para este repositório até o momento.
