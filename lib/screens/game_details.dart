@@ -40,7 +40,7 @@ class _GameDetails extends State<GameDetails> {
   }
 
   void increaseReview() {
-    if (review >= 10) return;
+    if (review >= 20) return;
 
     setState(() {
       review++;
@@ -217,8 +217,8 @@ class _GameDetails extends State<GameDetails> {
 
                         CountInfoCard(
                           title: "AVALIAÇÃO ATUAL",
-                          subtitle: "Intervalo 0 a 10",
-                          value: "$review/10",
+                          subtitle: "Intervalo 0 a 20",
+                          value: "$review/20",
                           valueColor: const Color.fromARGB(255, 255, 80, 120),
                           onDecrease: decreaseReview,
                           onIncrease: increaseReview,
